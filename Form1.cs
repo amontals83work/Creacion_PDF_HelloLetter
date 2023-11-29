@@ -151,24 +151,15 @@ namespace Creacion_PDF_HelloLetter
                     string provincia = CodigoPostal(cp);
 
                     string[] palabrasNombre = valorNombreCompleto.ToLower().Split(' ');
-                    for (int i = 0; i < palabrasNombre.Length; i++)
-                    {
-                        if (palabrasNombre[i].Length > 2) palabrasNombre[i] = char.ToUpper(palabrasNombre[i][0]) + palabrasNombre[i].Substring(1);
-                    }
+                    for (int i = 0; i < palabrasNombre.Length; i++) if (palabrasNombre[i].Length > 2) palabrasNombre[i] = char.ToUpper(palabrasNombre[i][0]) + palabrasNombre[i].Substring(1);
                     string nombreFormateado = string.Join(" ", palabrasNombre);
 
                     string[] palabrasDireccion = direccion.ToLower().Split(' ');
-                    for (int i = 0; i < palabrasDireccion.Length; i++)
-                    {
-                        if (palabrasDireccion[i].Length > 2) palabrasDireccion[i] = char.ToUpper(palabrasDireccion[i][0]) + palabrasDireccion[i].Substring(1);
-                    }
+                    for (int i = 0; i < palabrasDireccion.Length; i++) if (palabrasDireccion[i].Length > 2) palabrasDireccion[i] = char.ToUpper(palabrasDireccion[i][0]) + palabrasDireccion[i].Substring(1);
                     string direccionFormateada = string.Join(" ", palabrasDireccion);
 
                     string[] palabrasLocalidad = localidad.ToLower().Split(' ');
-                    for (int i = 0; i < palabrasLocalidad.Length; i++)
-                    {
-                        if (palabrasLocalidad[i].Length > 2) palabrasLocalidad[i] = char.ToUpper(palabrasLocalidad[i][0]) + palabrasLocalidad[i].Substring(1);
-                    }
+                    for (int i = 0; i < palabrasLocalidad.Length; i++) if (palabrasLocalidad[i].Length > 2) palabrasLocalidad[i] = char.ToUpper(palabrasLocalidad[i][0]) + palabrasLocalidad[i].Substring(1);
                     string localidadFormateada = string.Join(" ", palabrasLocalidad);
 
                     var exportarPDF = Path.Combine(rutaArchivos, "Hello_" + referencia + ".pdf");//Creacion del destino con su nombre y extension
