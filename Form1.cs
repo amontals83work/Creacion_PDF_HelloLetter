@@ -1,32 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics.Contracts;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using iText.IO.Font;
 using iText.IO.Image;
 using iText.Kernel.Colors;
 using iText.Kernel.Font;
 using iText.Kernel.Pdf;
-using iText.Layout;
 using iText.Layout.Element;
 using iText.Layout.Properties;
-using iText.StyledXmlParser.Jsoup.Nodes;
-using static iText.IO.Util.IntHashtable;
-using iText.Layout.Element;
 using iText.Kernel.Pdf.Annot;
 using iText.Kernel.Pdf.Action;
-using System.Data.SqlClient;
-using Microsoft.Win32;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Security.Cryptography;
-using iText.StyledXmlParser.Jsoup.Select;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Data.OleDb;
 
@@ -39,8 +23,8 @@ namespace Creacion_PDF_HelloLetter
         MCCommand mcComm = new MCCommand();
         Comp comp = new Comp();
         private OpenFileDialog openFileDialog;
-
         string ruta = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        int count = 0;
 
         public Form1()
         {
@@ -60,7 +44,6 @@ namespace Creacion_PDF_HelloLetter
         private void CargarPDF()
         {
             string hoja = nHoja();
-            int count = 0;
 
             OleDbConnection oleConnection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + txtFichero.Text.Trim() + ";Extended Properties='Excel 12.0 Xml;HDR=YES;IMEX=1';");
             OleDbDataAdapter oleAdapter = new OleDbDataAdapter("SELECT * FROM [" + hoja + "$]", oleConnection);
@@ -68,7 +51,6 @@ namespace Creacion_PDF_HelloLetter
             DataSet ds = new DataSet();
             oleAdapter.Fill(ds);
             oleConnection.Close();
-
             DataTable dt = ds.Tables[0];
 
             foreach (DataRow fila in dt.Rows)
@@ -103,10 +85,10 @@ namespace Creacion_PDF_HelloLetter
 
                 string provincia = comp.CodigoPostal(cp);
 
-                string rutaArchivos = Path.Combine(ruta, "OneDrive - MC PROINVEST, S.L/Proyectos/HelloLetters/ArborKnot/Quartz Capital Fund II");
-                string rutaArchivosGeneral = Path.Combine(ruta, "OneDrive - MC PROINVEST, S.L/Proyectos/HelloLetters/ArborKnot/Quartz Capital Fund II/General");
-                string rutaArchivosNavarra = Path.Combine(ruta, "OneDrive - MC PROINVEST, S.L/Proyectos/HelloLetters/ArborKnot/Quartz Capital Fund II/Navarra");
-                string rutaArchivosValencia = Path.Combine(ruta, "OneDrive - MC PROINVEST, S.L/Proyectos/HelloLetters/ArborKnot/Quartz Capital Fund II/Valencia");
+                string rutaArchivos = Path.Combine(ruta, "OneDrive - MC PROINVEST, S.L/Proyectos/HelloLetters/ArborKnot/Orange");
+                string rutaArchivosGeneral = Path.Combine(ruta, "OneDrive - MC PROINVEST, S.L/Proyectos/HelloLetters/ArborKnot/Orange/General");
+                string rutaArchivosNavarra = Path.Combine(ruta, "OneDrive - MC PROINVEST, S.L/Proyectos/HelloLetters/ArborKnot/Orange/Navarra");
+                string rutaArchivosValencia = Path.Combine(ruta, "OneDrive - MC PROINVEST, S.L/Proyectos/HelloLetters/ArborKnot/Orange/Valencia");
                 if (!Directory.Exists(rutaArchivos)) Directory.CreateDirectory(rutaArchivos);
                 if (!Directory.Exists(rutaArchivosGeneral)) Directory.CreateDirectory(rutaArchivosGeneral);
                 if (!Directory.Exists(rutaArchivosNavarra)) Directory.CreateDirectory(rutaArchivosNavarra);
@@ -161,7 +143,7 @@ namespace Creacion_PDF_HelloLetter
                             .SetFontSize(11)
                             .SetFixedLeading(12);
                         prfMC2.Add("MCDOS LEGAL S.L.");
-                        prfMC2.Add(new Text("\r\nC/ Goya 115 Pl 5 5º izq MADRID\r\nTELÉFONO DE CONTACTO: 911175438\r\nHORARIO DE ATENCIÓN AL CLIENTE:\r\nL- J: 09:00h a 18:00h\r\nV: 09:00h a 15:00h\r\n").SetFont(regularFont));
+                        prfMC2.Add(new Text("\r\nC/ Goya 115 Pl 5 5º izq MADRID\r\nTELÉFONO DE CONTACTO: 911088904\r\nHORARIO DE ATENCIÓN AL CLIENTE:\r\nL- J: 09:00h a 18:00h\r\nV: 09:00h a 15:00h\r\n").SetFont(regularFont));
                         doc.Add(prfMC2);
 
                         Paragraph prfDatosCliente = new Paragraph()
@@ -185,13 +167,13 @@ namespace Creacion_PDF_HelloLetter
                             .SetRelativePosition(0, 0, 0, 0)
                             .SetFontColor(colorNegro)
                             .SetFont(regularFont)
-                            .SetFontSize(11)
+                            .SetFontSize(10.5f)
                             .SetFixedLeading(12);
 
                         prfPrimero.Add("\r\nReferencia del crédito: ");
                         prfPrimero.Add(new Text(contrato).SetFont(boldFont));                        
 
-                        prfPrimero.Add("\r\n\r\nMuy Sr./a. nuestro/a:\r\n\r\n\r\nPor la presente le comunicamos que con fecha 19 de febrero de 2024, ");
+                        prfPrimero.Add("\r\n\r\nMuy Sr./a. nuestro/a:\r\n\r\nPor la presente le comunicamos que con fecha 21 de febrero de 2024, ");
                         prfPrimero.Add(new Text("QUARTZ CAPITAL FUND II").SetFont(boldFont));
                         prfPrimero.Add(" (el “");
                         prfPrimero.Add(new Text("Cedente").SetFont(boldFont));
@@ -203,7 +185,7 @@ namespace Creacion_PDF_HelloLetter
                         prfPrimero.Add(new Text(contrato).SetFont(boldFont));
                         prfPrimero.Add(" (el “");
                         prfPrimero.Add(new Text("Crédito").SetFont(boldFont));
-                        prfPrimero.Add("“), que ostenta frente a usted en su calidad de Titular, con un saldo pendiente a fecha de 19 de febrero de 2024 de ");
+                        prfPrimero.Add("“), que ostenta frente a usted en su calidad de Titular, con un saldo pendiente a fecha de 21 de febrero de 2024 de ");
                         prfPrimero.Add(new Text(importe + " €").SetFont(boldFont));
                         prfPrimero.Add(", cuyo origen es ");
                         prfPrimero.Add(new Text("Orange.").SetFont(boldFont));
@@ -232,10 +214,10 @@ namespace Creacion_PDF_HelloLetter
                         Paragraph prfRecuadroInteriorIzq = new Paragraph()
                             .SetPageNumber(1)
                             .SetVerticalAlignment(VerticalAlignment.TOP)
-                            .SetFixedPosition(135, 266, 250)
+                            .SetFixedPosition(135, 278, 250)
                             .SetFontColor(colorNegro)
                             .SetFont(boldFont)
-                            .SetFontSize(11)
+                            .SetFontSize(10.5f)
                             .SetFixedLeading(12);
                         prfRecuadroInteriorIzq.Add("REFERENCIA DEL PAGO:\r\n");
                         prfRecuadroInteriorIzq.Add("IMPORTE:\r\n");
@@ -245,7 +227,7 @@ namespace Creacion_PDF_HelloLetter
                         Paragraph prfRecuadroInteriorDch = new Paragraph()
                             .SetPageNumber(1)
                             .SetVerticalAlignment(VerticalAlignment.TOP)
-                            .SetFixedPosition(330, 266, 250)
+                            .SetFixedPosition(330, 278, 250)
                             .SetFontColor(colorNegro)
                             .SetFont(boldFont)
                             .SetFontSize(11)
@@ -264,7 +246,7 @@ namespace Creacion_PDF_HelloLetter
                             .SetRelativePosition(0, 0, 0, 0)
                             .SetFontColor(colorNegro)
                             .SetFont(regularFont)
-                            .SetFontSize(11)
+                            .SetFontSize(10.5f)
                             .SetFixedLeading(12);
                         prfSegundo.Add("\r\nTambién le ofrecemos la posibilidad de adaptar el pago a sus circunstancias particulares gracias a los planes de pago personalizados que le ofrecerán nuestros gestores telefónicos.\r\n\r\nPara cualquier comunicación relativa al Crédito deberá dirigirse a la Agencia de Cobro en el teléfono ");
                         prfSegundo.Add(new Text("91 108 89 04").SetFont(boldFont));
@@ -286,10 +268,10 @@ namespace Creacion_PDF_HelloLetter
                             .SetPageNumber(1)
                             .SetVerticalAlignment(VerticalAlignment.TOP)
                             .SetTextAlignment(TextAlignment.JUSTIFIED)
-                            .SetRelativePosition(0, 0, 0, 0)
+                            .SetRelativePosition(0, -10, 0, 0)
                             .SetFontColor(colorNegro)
                             .SetFont(regularFont)
-                            .SetFontSize(11)
+                            .SetFontSize(10.5f)
                             .SetFixedLeading(12);
 
                         prfTercero.Add("\r\nPor último, ");
@@ -340,10 +322,10 @@ namespace Creacion_PDF_HelloLetter
                                 .SetPageNumber(2)
                                 .SetVerticalAlignment(VerticalAlignment.TOP)
                                 .SetTextAlignment(TextAlignment.JUSTIFIED)
-                                .SetRelativePosition(0, 0, 0, 0)
+                                .SetRelativePosition(0, -20, 0, 0)
                                 .SetFontColor(colorNegro)
                                 .SetFont(regularFont)
-                                .SetFontSize(11)
+                                .SetFontSize(10.5f)
                                 .SetFixedLeading(12);
 
                             prfNavarra.Add("Asimismo, ");
@@ -362,8 +344,8 @@ namespace Creacion_PDF_HelloLetter
                                 .SetRelativePosition(0, -20, 0, 0)
                                 .SetFontColor(colorNegro)
                                 .SetFont(regularFont)
-                                .SetFontSize(10)
-                                .SetFixedLeading(11);
+                                .SetFontSize(10.5f)
+                                .SetFixedLeading(12);
 
                             prfValencia.Add("Asimismo, ");
                             prfValencia.Add(new Text("QUARTZ CAPITAL FUND II").SetFont(boldFont));
