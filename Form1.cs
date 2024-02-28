@@ -95,8 +95,8 @@ namespace Creacion_PDF_HelloLetter
                 if (!Directory.Exists(rutaArchivosValencia)) Directory.CreateDirectory(rutaArchivosValencia);
 
                 var exportarPDF = "";
-                if (cp > 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarra, "Hello_" + refEnvio + ".pdf");
-                else if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValencia, "Hello_" + refEnvio + ".pdf");
+                if (cp >= 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarra, "Hello_" + refEnvio + ".pdf");
+                else if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValencia, "Hello_" + refEnvio + ".pdf");
                 else exportarPDF = Path.Combine(rutaArchivosGeneral, "Hello_" + refEnvio + ".pdf");
                 
                 using (var writter = new PdfWriter(exportarPDF))
@@ -316,7 +316,7 @@ namespace Creacion_PDF_HelloLetter
 
                         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                        if (cp > 31000 && cp < 32000) //NAVARRA
+                        if (cp >= 31000 && cp < 32000) //NAVARRA
                         {
                             Paragraph prfNavarra = new Paragraph()
                                 .SetPageNumber(2)
@@ -335,7 +335,7 @@ namespace Creacion_PDF_HelloLetter
                             prfNavarra.Add(", de conformidad con la Ley 511, de la Ley 21/2019 de 4 de abril de modificación y actualización de la Compilación del Derecho Civil Foral de Navarra, le informan, en cuanto a la cesión de la cartera de créditos antes indicada, que los Créditos se cedieron, junto con otros créditos de características similares y que forman parte de la misma cartera, por un importe alzado de trescientos quince mil euros. Dado que la operación consiste en una transmisión global de créditos, el precio de la operación es fijo, conjunto, global y único, sin que sea posible realizar una individualización de dicho precio.");
                             doc.Add(prfNavarra);
                         }
-                        if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                        if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                         {
                             Paragraph prfValencia = new Paragraph()
                                 .SetPageNumber(2)
@@ -538,8 +538,8 @@ namespace Creacion_PDF_HelloLetter
                 var exportarPDF = "";
                 if (origen == "Alerin")
                 {
-                    if (cp > 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarraA, "Hello_" + refEnvio + ".pdf");
-                    else if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValenciaA, "Hello_" + refEnvio + ".pdf");
+                    if (cp >= 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarraA, "Hello_" + refEnvio + ".pdf");
+                    else if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValenciaA, "Hello_" + refEnvio + ".pdf");
                     else exportarPDF = Path.Combine(rutaArchivosGeneralA, "Hello_" + refEnvio + ".pdf");
                     string rutaArchivos = rutaArchivosA;
                     string rutaArchivosNavarra = rutaArchivosNavarraA;
@@ -618,7 +618,7 @@ namespace Creacion_PDF_HelloLetter
                                 .SetFontSize(11)
                                 .SetFixedLeading(12);
 
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 prfPrimero.Add(new Text("Referencia del crédito: " + refMC).SetFont(boldFont));
                                 prfPrimero.Add(new Text("\r\nCódigo de identificación del Contrato nº " + contrato).SetFont(boldFont));
@@ -670,7 +670,7 @@ namespace Creacion_PDF_HelloLetter
                             prfRecuadro.Add(Recuadro);
                             doc.Add(prfRecuadro);
 
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 Paragraph prfRecuadroInteriorIzq = new Paragraph()
                                 .SetPageNumber(1)
@@ -806,7 +806,7 @@ namespace Creacion_PDF_HelloLetter
 
                             //-------------------------------------------------------------
 
-                            if (cp > 31000 && cp < 32000) //NAVARRA
+                            if (cp >= 31000 && cp < 32000) //NAVARRA
                             {
                                 Paragraph prfNavarra = new Paragraph()
                                     .SetPageNumber(2)
@@ -825,7 +825,7 @@ namespace Creacion_PDF_HelloLetter
                                 prfNavarra.Add(" de conformidad con la Ley 511, de la Ley 21/2019 de 4 de abril de modificación y actualización de la Compilación del Derecho Civil Foral de Navarra, le informan, en cuanto a la cesión de la cartera de créditos antes indicada, que los Créditos se cedieron, junto con otros créditos de características similares y que forman parte de la misma cartera, por un importe alzado de setenta y cinco mil euros. Dado que la operación consiste en una transmisión global de créditos, el precio de la operación es fijo, conjunto, global y único, sin que sea posible realizar una individualización de dicho precio.");
                                 doc.Add(prfNavarra);
                             }
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 Paragraph prfValencia = new Paragraph()
                                     .SetPageNumber(2)
@@ -889,8 +889,8 @@ namespace Creacion_PDF_HelloLetter
                 }
                 else if (origen == "España")
                 {
-                    if (cp > 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarraE, "Hello_" + refEnvio + ".pdf");
-                    else if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValenciaE, "Hello_" + refEnvio + ".pdf");
+                    if (cp >= 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarraE, "Hello_" + refEnvio + ".pdf");
+                    else if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValenciaE, "Hello_" + refEnvio + ".pdf");
                     else exportarPDF = Path.Combine(rutaArchivosGeneralE, "Hello_" + refEnvio + ".pdf");
                     string rutaArchivos = rutaArchivosE;
                     string rutaArchivosNavarra = rutaArchivosNavarraE;
@@ -969,7 +969,7 @@ namespace Creacion_PDF_HelloLetter
                                 .SetFontSize(11)
                                 .SetFixedLeading(12);
 
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 prfPrimero.Add(new Text("Referencia del crédito: " + refMC).SetFont(boldFont));
                                 prfPrimero.Add(new Text("\r\nCódigo de identificación del Contrato nº " + contrato).SetFont(boldFont));
@@ -1021,7 +1021,7 @@ namespace Creacion_PDF_HelloLetter
                             prfRecuadro.Add(Recuadro);
                             doc.Add(prfRecuadro);
 
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 Paragraph prfRecuadroInteriorIzq = new Paragraph()
                                 .SetPageNumber(1)
@@ -1157,7 +1157,7 @@ namespace Creacion_PDF_HelloLetter
 
                             //-------------------------------------------------------------
 
-                            if (cp > 31000 && cp < 32000) //NAVARRA
+                            if (cp >= 31000 && cp < 32000) //NAVARRA
                             {
                                 Paragraph prfNavarra = new Paragraph()
                                     .SetPageNumber(2)
@@ -1176,7 +1176,7 @@ namespace Creacion_PDF_HelloLetter
                                 prfNavarra.Add(" de conformidad con la Ley 511, de la Ley 21/2019 de 4 de abril de modificación y actualización de la Compilación del Derecho Civil Foral de Navarra, le informan, en cuanto a la cesión de la cartera de créditos antes indicada, que los Créditos se cedieron, junto con otros créditos de características similares y que forman parte de la misma cartera, por un importe alzado de cuatrocientos dieciséis mil cuatrocientos cuarenta y dos con tres euros. Dado que la operación consiste en una transmisión global de créditos, el precio de la operación es fijo, conjunto, global y único, sin que sea posible realizar una individualización de dicho precio.");
                                 doc.Add(prfNavarra);
                             }
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 Paragraph prfValencia = new Paragraph()
                                     .SetPageNumber(2)
@@ -1240,8 +1240,8 @@ namespace Creacion_PDF_HelloLetter
                 }
                 else if (origen == "Invest")
                 {
-                    if (cp > 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarraI, "Hello_" + refEnvio + ".pdf");
-                    else if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValenciaI, "Hello_" + refEnvio + ".pdf");
+                    if (cp >= 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarraI, "Hello_" + refEnvio + ".pdf");
+                    else if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValenciaI, "Hello_" + refEnvio + ".pdf");
                     else exportarPDF = Path.Combine(rutaArchivosGeneralI, "Hello_" + refEnvio + ".pdf");
                     string rutaArchivos = rutaArchivosI;
                     string rutaArchivosNavarra = rutaArchivosNavarraI;
@@ -1320,7 +1320,7 @@ namespace Creacion_PDF_HelloLetter
                                 .SetFontSize(11)
                                 .SetFixedLeading(12);
 
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 prfPrimero.Add(new Text("Referencia del crédito: " + refMC).SetFont(boldFont));
                                 prfPrimero.Add(new Text("\r\nCódigo de identificación del Contrato nº " + contrato).SetFont(boldFont));
@@ -1372,7 +1372,7 @@ namespace Creacion_PDF_HelloLetter
                             prfRecuadro.Add(Recuadro);
                             doc.Add(prfRecuadro);
 
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 Paragraph prfRecuadroInteriorIzq = new Paragraph()
                                 .SetPageNumber(1)
@@ -1508,7 +1508,7 @@ namespace Creacion_PDF_HelloLetter
 
                             //-------------------------------------------------------------
 
-                            if (cp > 31000 && cp < 32000) //NAVARRA
+                            if (cp >= 31000 && cp < 32000) //NAVARRA
                             {
                                 Paragraph prfNavarra = new Paragraph()
                                     .SetPageNumber(2)
@@ -1527,7 +1527,7 @@ namespace Creacion_PDF_HelloLetter
                                 prfNavarra.Add(" de conformidad con la Ley 511, de la Ley 21/2019 de 4 de abril de modificación y actualización de la Compilación del Derecho Civil Foral de Navarra, le informan, en cuanto a la cesión de la cartera de créditos antes indicada, que los Créditos se cedieron, junto con otros créditos de características similares y que forman parte de la misma cartera, por un importe alzado de cincuenta y seis mil ochocientos ochenta y cinco con cero uno euros. Dado que la operación consiste en una transmisión global de créditos, el precio de la operación es fijo, conjunto, global y único, sin que sea posible realizar una individualización de dicho precio.");
                                 doc.Add(prfNavarra);
                             }
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 Paragraph prfValencia = new Paragraph()
                                     .SetPageNumber(2)
@@ -1678,8 +1678,8 @@ namespace Creacion_PDF_HelloLetter
                         string localidadFormateada = string.Join(" ", palabrasLocalidad);
 
                         var exportarPDF = "";
-                        if (cp > 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarra, "Hello_" + referencia + ".pdf");
-                        else if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValencia, "Hello_" + referencia + ".pdf");
+                        if (cp >= 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarra, "Hello_" + referencia + ".pdf");
+                        else if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValencia, "Hello_" + referencia + ".pdf");
                         else exportarPDF = Path.Combine(rutaArchivosGeneral, "Hello_" + referencia + ".pdf");
                             
                         using (var writter = new PdfWriter(exportarPDF))
@@ -1755,7 +1755,7 @@ namespace Creacion_PDF_HelloLetter
                                     .SetFontSize(11)
                                     .SetFixedLeading(12);
 
-                                if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                                if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                                 {
                                     prfPrimero.Add(new Text("Referencia del crédito: " + referencia).SetFont(boldFont));
                                     prfPrimero.Add(new Text("\r\nCódigo de identificación del Contrato nº " + referencia).SetFont(boldFont));
@@ -1807,7 +1807,7 @@ namespace Creacion_PDF_HelloLetter
                                 prfRecuadro.Add(Recuadro);
                                 doc.Add(prfRecuadro);
 
-                                if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                                if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                                 {
                                     Paragraph prfRecuadroInteriorIzq = new Paragraph()
                                     .SetPageNumber(1)
@@ -1943,7 +1943,7 @@ namespace Creacion_PDF_HelloLetter
 
                                 //-------------------------------------------------------------
 
-                                if (cp > 31000 && cp < 32000) //NAVARRA
+                                if (cp >= 31000 && cp < 32000) //NAVARRA
                                 {
                                     Paragraph prfNavarra = new Paragraph()
                                         .SetPageNumber(2)
@@ -1962,7 +1962,7 @@ namespace Creacion_PDF_HelloLetter
                                     prfNavarra.Add(" de conformidad con la Ley 511, de la Ley 21/2019 de 4 de abril de modificación y actualización de la Compilación del Derecho Civil Foral de Navarra, le informan, en cuanto a la cesión de la cartera de créditos antes indicada, que los Créditos se cedieron, junto con otros créditos de características similares y que forman parte de la misma cartera, por un importe alzado de setenta y cinco mil euros. Dado que la operación consiste en una transmisión global de créditos, el precio de la operación es fijo, conjunto, global y único, sin que sea posible realizar una individualización de dicho precio.");
                                     doc.Add(prfNavarra);
                                 }
-                                if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                                if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                                 {
                                     Paragraph prfValencia = new Paragraph()
                                         .SetPageNumber(2)
@@ -2130,8 +2130,8 @@ namespace Creacion_PDF_HelloLetter
                     string localidadFormateada = string.Join(" ", palabrasLocalidad);
 
                     var exportarPDF = "";
-                    if (cp > 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarra, "Hello_" + referencia + ".pdf");//Creacion del destino con su nombre y extension                    
-                    else if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValencia, "Hello_" + referencia + ".pdf");
+                    if (cp >= 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarra, "Hello_" + referencia + ".pdf");//Creacion del destino con su nombre y extension                    
+                    else if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValencia, "Hello_" + referencia + ".pdf");
                     else exportarPDF = Path.Combine(rutaArchivosGeneral, "Hello_" + referencia + ".pdf");//Creacion del destino con su nombre y extension                                
 
                     using (var writter = new PdfWriter(exportarPDF))
@@ -2207,7 +2207,7 @@ namespace Creacion_PDF_HelloLetter
                                 .SetFontSize(11)
                                 .SetFixedLeading(12);
 
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 prfPrimero.Add(new Text("Referencia del crédito: " + referencia).SetFont(boldFont));
                                 prfPrimero.Add(new Text("\r\nCódigo de identificación del Contrato nº " + referencia).SetFont(boldFont));
@@ -2259,7 +2259,7 @@ namespace Creacion_PDF_HelloLetter
                             prfRecuadro.Add(Recuadro);
                             doc.Add(prfRecuadro);
 
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 Paragraph prfRecuadroInteriorIzq = new Paragraph()
                                 .SetPageNumber(1)
@@ -2395,7 +2395,7 @@ namespace Creacion_PDF_HelloLetter
 
                             //-------------------------------------------------------------
 
-                            if (cp > 31000 && cp < 32000) //NAVARRA
+                            if (cp >= 31000 && cp < 32000) //NAVARRA
                             {
                                 Paragraph prfNavarra = new Paragraph()
                                     .SetPageNumber(2)
@@ -2414,7 +2414,7 @@ namespace Creacion_PDF_HelloLetter
                                 prfNavarra.Add(" de conformidad con la Ley 511, de la Ley 21/2019 de 4 de abril de modificación y actualización de la Compilación del Derecho Civil Foral de Navarra, le informan, en cuanto a la cesión de la cartera de créditos antes indicada, que los Créditos se cedieron, junto con otros créditos de características similares y que forman parte de la misma cartera, por un importe alzado de cincuenta y seis mil ochocientos ochenta y cinco con cero uno euros. Dado que la operación consiste en una transmisión global de créditos, el precio de la operación es fijo, conjunto, global y único, sin que sea posible realizar una individualización de dicho precio.");
                                 doc.Add(prfNavarra);
                             }
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 Paragraph prfValencia = new Paragraph()
                                     .SetPageNumber(2)
@@ -2562,8 +2562,8 @@ namespace Creacion_PDF_HelloLetter
                     string localidadFormateada = string.Join(" ", palabrasLocalidad);
 
                     var exportarPDF = "";
-                    if (cp > 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarra, "Hello_" + referencia + ".pdf");//Creacion del destino con su nombre y extension                    
-                    else if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValencia, "Hello_" + referencia + ".pdf");
+                    if (cp >= 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarra, "Hello_" + referencia + ".pdf");//Creacion del destino con su nombre y extension                    
+                    else if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValencia, "Hello_" + referencia + ".pdf");
                     else exportarPDF = Path.Combine(rutaArchivosGeneral, "Hello_" + referencia + ".pdf");//Creacion del destino con su nombre y extension                                
 
                     using (var writter = new PdfWriter(exportarPDF))
@@ -2639,7 +2639,7 @@ namespace Creacion_PDF_HelloLetter
                                 .SetFontSize(11)
                                 .SetFixedLeading(12);                            
 
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 prfPrimero.Add(new Text("Referencia del crédito: " + referencia).SetFont(boldFont));
                                 prfPrimero.Add(new Text("\r\nCódigo de identificación del Contrato nº " + referencia).SetFont(boldFont));
@@ -2691,7 +2691,7 @@ namespace Creacion_PDF_HelloLetter
                             prfRecuadro.Add(Recuadro);
                             doc.Add(prfRecuadro);
 
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 Paragraph prfRecuadroInteriorIzq = new Paragraph()
                                 .SetPageNumber(1)
@@ -2827,7 +2827,7 @@ namespace Creacion_PDF_HelloLetter
 
                             //-------------------------------------------------------------
 
-                            if (cp > 31000 && cp < 32000) //NAVARRA
+                            if (cp >= 31000 && cp < 32000) //NAVARRA
                             {
                                 Paragraph prfNavarra = new Paragraph()
                                     .SetPageNumber(2)
@@ -2846,7 +2846,7 @@ namespace Creacion_PDF_HelloLetter
                                 prfNavarra.Add(" de conformidad con la Ley 511, de la Ley 21/2019 de 4 de abril de modificación y actualización de la Compilación del Derecho Civil Foral de Navarra, le informan, en cuanto a la cesión de la cartera de créditos antes indicada, que los Créditos se cedieron, junto con otros créditos de características similares y que forman parte de la misma cartera, por un importe alzado de cuatrocientos dieciséis mil cuatrocientos cuarenta y dos con tres euros. Dado que la operación consiste en una transmisión global de créditos, el precio de la operación es fijo, conjunto, global y único, sin que sea posible realizar una individualización de dicho precio.");
                                 doc.Add(prfNavarra);
                             }
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 Paragraph prfValencia = new Paragraph()
                                     .SetPageNumber(2)
@@ -2994,8 +2994,8 @@ namespace Creacion_PDF_HelloLetter
                     string localidadFormateada = string.Join(" ", palabrasLocalidad);
 
                     var exportarPDF = "";
-                    if (cp > 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarra, "Hello_" + referencia + ".pdf");//Creacion del destino con su nombre y extension                    
-                    else if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValencia, "Hello_" + referencia + ".pdf");
+                    if (cp >= 31000 && cp < 32000) exportarPDF = Path.Combine(rutaArchivosNavarra, "Hello_" + referencia + ".pdf");//Creacion del destino con su nombre y extension                    
+                    else if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000) exportarPDF = Path.Combine(rutaArchivosValencia, "Hello_" + referencia + ".pdf");
                     else exportarPDF = Path.Combine(rutaArchivosGeneral, "Hello_" + referencia + ".pdf");//Creacion del destino con su nombre y extension                                
 
                     using (var writter = new PdfWriter(exportarPDF))
@@ -3223,7 +3223,7 @@ namespace Creacion_PDF_HelloLetter
 
                             //-------------------------------------------------------------
 
-                            if (cp > 31000 && cp < 32000) //Hello_747039
+                            if (cp >= 31000 && cp < 32000) //Hello_747039
                             {
                                 Paragraph prfNavarra = new Paragraph()
                                     .SetPageNumber(2)
@@ -3243,7 +3243,7 @@ namespace Creacion_PDF_HelloLetter
                                 doc.Add(prfNavarra);
 
                             }                           
-                            if (cp > 3000 && cp < 4000 || cp > 12000 && cp < 13000 || cp > 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
+                            if (cp >= 3000 && cp < 4000 || cp >= 12000 && cp < 13000 || cp >= 46000 && cp < 47000)// ALICANTE // CASTELLON // VALENCIA
                             {
                                 Paragraph prfValencia = new Paragraph()
                                     .SetPageNumber(2)
