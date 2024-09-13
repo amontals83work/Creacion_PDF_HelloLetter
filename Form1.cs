@@ -62,7 +62,7 @@ namespace Creacion_PDF_HelloLetter
         {
             string hoja = nHoja();
             int count = 0;
-            string idCliente = "95"; //"93" "95"
+            string idCliente = "95"; //"93"  "95"
             string carpeta = "Crisalida 6";
 
             OleDbConnection oleConnection = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + txtFichero.Text.Trim() + ";Extended Properties='Excel 12.0 Xml;HDR=YES;IMEX=1';");
