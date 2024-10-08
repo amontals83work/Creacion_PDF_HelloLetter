@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Creacion_PDF_HelloLetter
+namespace Cream_Finance
 {
     public class ConexionDB
     {
@@ -54,4 +54,3 @@ namespace Creacion_PDF_HelloLetter
         }
     }
 }
-
